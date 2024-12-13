@@ -11,7 +11,7 @@ Bit size is
 
 ## LICENSE
 
-- 'screw-driver.scad' is MIT License
+- 'screw-driver.scad' is　provided under MIT License
 
 - Using 'threads-library-by-cuiso-v1.scad'
 
