@@ -28,27 +28,25 @@
  */
 
 
-use <threads-library-by-cuiso-v1.scad>
-/*
- * OpenScad library. Threads for screws and nuts V1
- * by Cuiso is licensed under the Creative Commons - Attribution license.
- * https://www.thingiverse.com/thing:3131126
- */
+include <BOSL2/std.scad>
+include <BOSL2/screws.scad>
 
 // Quality
 $fn = 128;
+$slop = 0.025;
 
-bit_dia = 5;    // bit 直径
-bit_len = 28;   // bit 全長
-bit_dep = 8;    // bit 差し込む穴の深さ
+bit_dia = 5;      // bit 直径
+bit_len = 28;     // bit 全長
+bit_dep = 8;      // bit 差し込む穴の深さ
+bit_expand = 0.025; // bit 穴が緩い時、少し小さくする
 
 wall=1.25;       // 壁の厚さ。ペン先が薄くなりすぎないように
 
 screw_dia = 8;  // 蓋のネジ穴の直径
-screw_len = 5; // 蓋のネジ穴の深さ
+screw_len = 6; // 蓋のネジ穴の深さ
 
 pen_dia = 12;   // ペン軸の直径
-pen_len = 100;  // ペン軸の長さ
+pen_len = 101;  // ペン軸の長さ
 
 cap_len = 10;   // 蓋の長さ（ネジ部分除く）
 cap_dia = pen_dia;  // 蓋の直径
@@ -58,6 +56,7 @@ hall_len = bit_len * 3 + 1;  // bit 収納穴の深さ
 
 nibs_dia = bit_dia + wall * 2; // ペン先の直径
 nibs_len = 20;                 // ペン先部分の長さ
+
 
 translate([0, 0, 0])
     difference() {
@@ -74,11 +73,11 @@ translate([0, 0, 0])
             cylinder(d=hall_dia, h=hall_len);
         // ねじ山
         translate([0, 0, pen_len-screw_len])
-            thread_for_nut_fullparm(diameter=screw_dia, length=screw_len, pitch=2,    usrclearance=0.1);
+            screw_hole(str("M",screw_dia,",",screw_len), thread=2, anchor=BOTTOM);
         // bit 差し込み穴
-        cylinder(r=bit_dia/2, h=bit_dep, $fn=6);
+        cylinder(r=bit_dia/2-bit_expand, h=bit_dep, $fn=6);
 
-        // 穴調整のため断面見たい時用。
+//        // 穴調整のため断面見たい時用。
 //        translate([-pen_dia/2, -pen_dia/2, 0])
 //            cube([pen_dia, pen_dia/2, pen_len]);
     }
@@ -87,8 +86,10 @@ translate([0, 0, 0])
 // ふた
 translate([-pen_dia * 2, 0, 0])
     union(){
-        thread_for_screw_fullparm(diameter=screw_dia, length=screw_len+cap_len, pitch=2); 
+        difference(){
+            screw(str("M",screw_dia,"x2"), length=screw_len+cap_len, anchor=BOTTOM, head="none");
+            translate([-screw_dia/2,0,0]) cube([screw_dia, 0.1, screw_len+cap_len]);
+        }
         cylinder(d=cap_dia, h=cap_len, $fn=12);
     }
  
-

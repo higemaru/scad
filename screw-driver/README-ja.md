@@ -9,11 +9,3 @@
 ## LICENSE
 
 - screw-driver は MIT ライセンスです
-
-- threads-library-by-cuiso-v1.scad を利用しています
-
-  > OpenScad library. Threads for screws and nuts V1by Cuiso is licensed under the Creative Commons - Attribution license.
-  > https://www.thingiverse.com/thing:3131126
-
-  
-

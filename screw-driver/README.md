@@ -12,11 +12,3 @@ Bit size is
 ## LICENSE
 
 - 'screw-driver.scad' is provided under MIT License
-
-- Using 'threads-library-by-cuiso-v1.scad'
-
-  > OpenScad library. Threads for screws and nuts V1by Cuiso is licensed under the Creative Commons - Attribution license.
-  > https://www.thingiverse.com/thing:3131126
-
-  
-
