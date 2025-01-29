@@ -38,7 +38,8 @@ $slop = 0.025;
 bit_dia = 5;      // bit 直径
 bit_len = 28;     // bit 全長
 bit_dep = 8;      // bit 差し込む穴の深さ
-bit_expand = 0.025; // bit 穴が緩い時、少し小さくする
+//bit_expand = 0.025; // bit 穴が緩い時、少し小さくする
+bit_expand = 0.0125; // bit 穴が緩い時、少し小さくする
 
 wall=1.25;       // 壁の厚さ。ペン先が薄くなりすぎないように
 
