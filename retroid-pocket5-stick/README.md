@@ -16,3 +16,8 @@ I print by [Bambu Lab A1 mini](https://us.store.bambulab.com/products/a1-mini) 3
 ## LICENSE
 
 Zero-Clause BSD LICENSE
+
+## SEE ALSO
+
+MakerWorld: https://makerworld.com/en/models/1140934
+

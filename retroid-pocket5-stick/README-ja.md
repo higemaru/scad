@@ -16,3 +16,7 @@
 ## ライセンス
 
 ゼロ条項 BSD ライセンスです
+
+## 関連サイト
+
+MakerWorld: https://makerworld.com/en/models/1140934
