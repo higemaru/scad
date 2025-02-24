@@ -22,30 +22,39 @@ $fn = 128;
 
 // Size
 
-// (Head Thickness)
+// (Head Thickness [3.5])
 bd = 3.5;  // ヘッドの厚み
-// (Head radius)
+// (Head radius [6.85])
 br = 6.85; // ヘッドの半径
 //br = 7.85; // ヘッドの半径
-// (Head edge width)
+// (Head edge width [1.5])
 ew = 1.5;  // ヘッドのエッジ幅
 
-// (Shaft Length)
+// (Shaft Length [3.3])
 sl = 3.3;  // シャフトの長さ
-// (Shaft radius)
+// (Shaft radius [2.65])
 sr = 2.65; // シャフトの半径
 
-// (Hall hort dia)
+// (Hall hort dia [2.9])
 hs = 2.9; // 穴の短径
-// (Hall lenong dia)
+// (Hall lenong dia [3.7])
 hl = 3.7; // 穴の長径
-// (Hall depth
+// (Hall depth [5])
 hd = 5;   // 穴の深さ
 
-// (Convex head radius)
-rs = 20; // convex 部分の球体の半径
-// (Concave head depression)
+// (Convex head radius [14])
+//rs = 20; // convex 部分の球体の半径
+rs = 14; // convex 部分の球体の半径
+// (Concave head depression [0.5])
 cd = 0.5; // ヘッドの窪みの深さ
+
+// (default shape flat/concave/convex)
+default_shape = "flat";
+
+/*
+ * Switch 用キャップかぶせるなら、bd=2.0, br=6.0, sl=3.8 で元と同じくらい
+ */
+
 
 module sliced_sphere() {
     // 球体をカットした時の断面の半径
@@ -61,18 +70,18 @@ module sliced_sphere() {
 }
 
 
-module _head_flat(){
-    cyl(h=bd, r=br,rounding=bd/2, center=false);
+module _head_flat(rad=br){
+    cyl(h=bd, r=rad,rounding=bd/2, center=false);
 }
-module _head_concave() {
+module _head_concave(rad=br) {
     difference(){
-        cyl(h=bd, r=br,rounding=bd/2, center=false);
+        cyl(h=bd, r=rad,rounding=bd/2, center=false);
         translate([0,0,bd-cd])
-            cyl(h=cd,r=br-ew, rounding=-0.25,center=false);
+            cyl(h=cd,r=rad-ew, rounding=-0.25,center=false);
     }
 }
-module _head_convex() {
-    _head_concave();
+module _head_convex(rad=br) {
+    _head_concave(rad=rad);
     translate([0,0,bd-cd]) sliced_sphere();
 }
 module _shaft_hole() {
@@ -84,23 +93,26 @@ module _shaft_hole() {
         }
     }
 }
-module _stick(shape="concave", height=sl) {
+module _stick(shape=default_shape, height=sl, rad=br) {
     difference() {
         union(){
             // ヘッド
             translate([0,0,height]) {
                 if (shape=="concave") {
-                    _head_concave();
+                    _head_concave(rad=rad);
                 }
                 else if (shape=="convex") {
-                    _head_convex();
+                    _head_convex(rad=rad);
                 }
                 else {
-                    _head_flat();
+                    _head_flat(rad=rad);
                 }
             }
             // 軸
-            cylinder(h=sl+0.2, r=sr);
+//            difference(){
+                cylinder(h=sl+0.2, r=sr);
+//                translate([0,0,(sl+0.2)/2]) cube([sr*2,0.2,sl+0.2],center=true);
+//            }
         }
     
         // 軸穴
@@ -126,14 +138,25 @@ module low_convex() {
 module low_flat() {
     _stick(shape="flat", height=2.3);
 }
+module low_flat_wide() {
+    _stick(shape="flat", height=2.3, rad=7.85);
+}
 
 
 shift = br*2+2;
+
+/*
+ * Sample
+ */
+ 
+//std_convex();
+//low_convex();
 //low_flat();
-//translate([shift,0,0])
-//    low_flat();
+//low_flat_wide();
 
-
+/*
+ * à la carte
+ */
 std_concave();
 translate([shift,0,0])
     std_convex();
