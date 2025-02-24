@@ -5,6 +5,7 @@ Thumb Stick Cap for [Retroid Pocket 5](https://www.goretroid.com/products/retroi
 I print by [Bambu Lab A1 mini](https://us.store.bambulab.com/products/a1-mini) 3D Printer.
 
 ![sample](images/mounting.png)
+![compare](images/compare.png)
 ![sample overhead](images/sample.png)
 ![sample side](images/sample_side-view.png)![sample back](images/sample_back-side.png)
 

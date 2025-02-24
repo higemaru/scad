@@ -5,6 +5,7 @@
 私は [Bambu Lab A1 mini](https://us.store.bambulab.com/products/a1-mini) でプリントしています。
 
 ![sample](images/mounting.png)
+![compare](images/compare.png)
 ![sample overhead](images/sample.png)
 ![sample side](images/sample_side-view.png)![sample back](images/sample_back-side.png)
 
