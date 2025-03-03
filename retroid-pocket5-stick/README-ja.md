@@ -2,6 +2,7 @@
 
 [Retroid Pocket 5](https://www.goretroid.com/products/retroid-pocket-5-handheld) 用のアナログスティックキャップです。
 オリジナルと交換して利用します。
+
 ※ おそらくAYN Odin 2、Anbernic RG406Hでも使えると思います。
 
 私は [Bambu Lab A1 mini](https://us.store.bambulab.com/products/a1-mini) でプリントしています。
