@@ -9,6 +9,10 @@
 
 3Dプリンタをお持ちでない方のために、DMM.make 用の STL ファイルを用意しました。[stl/forDMMmake](stl/forDMMmake) のファイルをご利用ください。自分で発注してみた印象だと問題はないと思います。
 
+STL ファイルのダウンロードは、プレビュー画面の右上「Download raw file」からどうぞ。
+
+![preview](images/stl-preview.png)
+
 - [rp5-low-convex8.stl](stl/forDMMmake/rp5-low-convex8.stl) … ロープロファイル・コンベックス 8 個組
 - [rp5-low-convex4.stl](stl/forDMMmake/rp5-low-convex4.stl) … ロープロファイル・コンベックス 4 個組
 - [rp5-low-flat4.stl](stl/forDMMmake/rp5-low-flat4.stl) … ロープロファイル・フラット 4 個組
