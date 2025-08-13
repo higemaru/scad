@@ -21,6 +21,10 @@ $fs = 0.1;
 
 include <BOSL2/std.scad>;
 
+/* [Style] */
+// (Style [flat])
+style = "flat"; // ["flat","homing"]
+
 /* [Size] */
 // (default: 19 [16-19])
 key_width = 19; // [16:.5:19]
@@ -34,22 +38,20 @@ key_height = 19; // [16:.5:19]
 // (default: 4)
 key_depth = 4; // .5
 
-/* [Style] */
-// (Style [flat])
-style = "flat"; // ["flat","homing"]
+// (Stem height [2.5])
+stem_post_height = 2.5; // [2.5:.1:5]
 
 /* [Hidden] */
-wall_thickness = 1.2;
-fillet_radius = 0.4;
-key_top_taper = 0.5;
 
-// stem
 stem_post_height = 3.3;
 stem_socket_depth = 2.4;
 stem_post_diameter = 5.8;
 stem_socket_long = 4.2;
 stem_socket_short = 1.3;
 
+wall_thickness = 1.2;
+fillet_radius = 0.4;
+key_top_taper = 0.5;
 
 /*
  * keycap body
