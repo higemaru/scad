@@ -43,7 +43,6 @@ stem_post_height = 2.5; // [2.5:.1:5]
 
 /* [Hidden] */
 
-stem_post_height = 3.3;
 stem_socket_depth = 2.4;
 //stem_post_diameter = 5.8;
 stem_post_diameter = 5.5;
